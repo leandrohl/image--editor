@@ -45,7 +45,6 @@ function Header() {
     navigate(route)
   }
 
-  
   return (
     <S.Header>
       <Button>
@@ -72,6 +71,24 @@ function Header() {
       </Button>
       <Button action={() => redirectMenu('/separatechannels')}>
         Separar canais RGB
+      </Button>
+      <Button action={() => redirectMenu('/viewpixels')}>
+        Ver pixels
+      </Button>
+      <Button action={() => redirectMenu('/binarization')}>
+        Binarização de imagem
+      </Button>
+      <Button action={() => redirectMenu('/grayscale')}>
+        Converter para tons de cinza
+      </Button>
+      <Button action={() => redirectMenu('/filters')}>
+        Filtros
+      </Button>
+      <Button action={() => redirectMenu('/dynamicscale')}>
+        S = c*r^y
+      </Button>
+      <Button action={() => redirectMenu('/saltandpepper')}>
+        Ruído sal e pimenta
       </Button>
       <Button action={() => {setOpenModalHSLRGB(true)}}>
         Converter HSL para RGB

@@ -16,7 +16,7 @@ function ModalRGBHSL(props) {
     lightness: 0
   })
 
-  const MAX_COLOR_RGB = 255;
+  const MAX_COLOR = 255;
   const MAX_COLOR_HSL = 240;
   const MIN_COLOR = 0;
 
@@ -56,9 +56,9 @@ function ModalRGBHSL(props) {
         r = c; g = 0; b = x;
     }
 
-    r = Math.round((r + m) * MAX_COLOR_RGB)
-    g = Math.round((g + m) * MAX_COLOR_RGB)
-    b = Math.round((b + m) * MAX_COLOR_RGB)
+    r = Math.round((r + m) * MAX_COLOR)
+    g = Math.round((g + m) * MAX_COLOR)
+    b = Math.round((b + m) * MAX_COLOR)
 
     setRGBValue({
       red: r,
@@ -69,9 +69,9 @@ function ModalRGBHSL(props) {
 
 
   const RGBtoHSL = (r, g, b) => {
-    r /= MAX_COLOR_RGB
-    g /= MAX_COLOR_RGB
-    b /= MAX_COLOR_RGB
+    r /= MAX_COLOR
+    g /= MAX_COLOR
+    b /= MAX_COLOR
 
     const minRGB = Math.min(r, g, b)
     const maxRGB = Math.max(r, g, b) 
@@ -119,7 +119,7 @@ function ModalRGBHSL(props) {
               RGBtoHSL(red, green, blue)
               setRGBValue({...RGBValues, red})
             }}
-            max={MAX_COLOR_RGB}
+            max={MAX_COLOR}
             min={MIN_COLOR}
           />
           <Input 
@@ -132,7 +132,7 @@ function ModalRGBHSL(props) {
               RGBtoHSL(red, green, blue)
               setRGBValue({...RGBValues, green})
             }}
-            max={MAX_COLOR_RGB}
+            max={MAX_COLOR}
             min={MIN_COLOR}
           />
           <Input 
@@ -145,7 +145,7 @@ function ModalRGBHSL(props) {
               RGBtoHSL(red, green, blue)
               setRGBValue({...RGBValues, blue})
             }}
-            max={MAX_COLOR_RGB}
+            max={MAX_COLOR}
             min={MIN_COLOR}
           />
         </S.ContainerInputs>

@@ -11,7 +11,8 @@ function Input(props) {
     disabled,
     error,
     max,
-    min
+    min,
+    placeHolder
   } = props
   return (
     <S.Container>
@@ -23,6 +24,7 @@ function Input(props) {
         value={value} 
         type={type} 
         max={max}
+        placeholder={placeHolder}
         min={min}
       />
     </S.Container>

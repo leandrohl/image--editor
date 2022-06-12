@@ -5,16 +5,23 @@ import {getImageDataFromImage} from '../../utils/getImageDataFromImage'
 import { reRenderImage } from '../../utils/reRenderImage';
 import { CANVAS_ID, MAX_COLOR } from '../../config/constants';
 
-const InvertImage = () => {
-  const invertImageOperation = () => {
+const BinarizationImage = () => {
+  const binarizationImage = () => {
     const imageData = getImageDataFromImage(CANVAS_ID)
 
     const data = imageData.data
+    let s = 128
     
     for (let i = 0; i < data.length; i += 4) {
-      data[i] = MAX_COLOR - data[i]
-      data[i+1] = MAX_COLOR - data[i+1]
-      data[i+2] = MAX_COLOR - data[i+2]
+      if (data[i] < s) {
+        data[i] = 0
+        data[i+1] = 0
+        data[i+2] = 0
+      } else {
+        data[i] = MAX_COLOR
+        data[i+1] = MAX_COLOR
+        data[i+2] = MAX_COLOR
+      }
     }
     
     reRenderImage(imageData, CANVAS_ID)
@@ -22,9 +29,9 @@ const InvertImage = () => {
   
   return (
     <S.Container>
-      <Canvas id={CANVAS_ID} applyOperation={invertImageOperation}/>
+      <Canvas id={CANVAS_ID} applyOperation={binarizationImage}/>
     </S.Container>
   )
 }
 
-export default InvertImage;
+export default BinarizationImage;

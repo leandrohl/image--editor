@@ -30,6 +30,6 @@ export const Input = styled.input(({
    border: 1px solid ${error ? theme.red : theme.gray3};
    padding-right: ${type === 'password' && '40px'};
    ::placeholder {
-     color: ${theme.gray3};
+     color: ${theme.black};
    }
 `);
