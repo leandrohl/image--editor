@@ -1,12 +1,14 @@
 import React from 'react';
-import Header from '../Header';
+import MenuLateral from '../MenuLateral';
 
 import * as S from './styles';
 
 function ContainerApp({ children }) {
   return (
     <S.Container>
-      <Header />
+      <S.Menu>
+        <MenuLateral />
+      </S.Menu>
       <S.Body>
         { children }
       </S.Body>

@@ -26,7 +26,7 @@ const RoutesDom = () => {
       <Route path="/filters" element={<Filters />} />
       <Route path="/dynamicscale" element={<DynamicScaleCompression />} />
       <Route path="/saltandpepper" element={<SaltAndPepper />} />
-
+      <Route path="*" element={<Home />} />
     </Routes>
   )
 }
