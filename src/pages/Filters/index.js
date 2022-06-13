@@ -2,7 +2,6 @@ import React from 'react';
 import Canvas from '../../components/Canvas';
 import { CANVAS_ID } from '../../config/constants';
 import { getImageDataFromImage } from '../../utils/getImageDataFromImage';
-import { getImageGrayscale } from '../../utils/getImageGrayscale';
 import { reRenderImage } from '../../utils/reRenderImage';
 
 import * as S from './styles';
@@ -26,7 +25,6 @@ function Filters() {
     const data = imageData.data
     let x, y;
     let meanData = [];
-    let grayscaleData = getImageGrayscale(imageData);
 
     function bindPixelAt(data) {
       return function(x, y, i) {
@@ -36,9 +34,6 @@ function Filters() {
     }
 
     let pixelAt = bindPixelAt(data);
-
-    pixelAt = bindPixelAt(grayscaleData);
-
 
     for (y = 0; y < height; y++) {
       for (x = 0; x < width; x++) {
@@ -74,7 +69,6 @@ function Filters() {
     let height = imageData.height;
 
     let medianData = [];
-    let grayscaleData = getImageGrayscale(imageData);
 
     function bindPixelAt(data) {
       return function(x, y, i) {
@@ -86,7 +80,7 @@ function Filters() {
     let data = imageData.data;
     let pixelAt = bindPixelAt(data);
 
-    pixelAt = bindPixelAt(grayscaleData);
+    pixelAt = bindPixelAt(data);
 
     for (let y = 0; y < height; y++) {
       for (let x = 0; x < width; x++) {

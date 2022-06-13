@@ -39,7 +39,7 @@ function Thresholding() {
     <S.Container>
       <S.ContainerForm>
         <Canvas id={CANVAS_ID} applyOperation={thresholdingImage}/>
-        <Input label="Limiar" value={limiar} onChange={(event) => setLimiar(event.target.value)} />
+        <Input label="Limiar" value={limiar} onChange={(event) => setLimiar(event.target.value)} type="number" />
       </S.ContainerForm>
       <Canvas id={CANVAS_ID_THRESHOLDING} title="Limirização da imagem"/>
     </S.Container>

@@ -30,7 +30,7 @@ const DynamicScaleCompression = () => {
     <S.Container>
       <S.ContainerForm>
         <Canvas id={CANVAS_ID} applyOperation={dynamicScaleCompression}/>
-        <Input label="γ" value={gamma} onChange={(event) => setGamma(event.target.value)} />
+        <Input label="γ" value={gamma} onChange={(event) => setGamma(event.target.value)} type="number"/>
       </S.ContainerForm>
       <Canvas id={CANVAS_ID_DYNAMICSCALE} title="S = c*r^y"/>
     </S.Container>

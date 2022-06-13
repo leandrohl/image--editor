@@ -76,21 +76,21 @@ export const AppProvider = ({ children }) => {
     },
     {
       id: 11,
-      title: 'Equalização',
-      icon: <MdEqualizer />,
-      navigate: '/equalizateimage'
-    },
-    {
-      id: 12,
       title: 'Laplaciano',
       icon: <MdOutlinePhotoFilter />,
       navigate: '/laplace'
     },
     {
-      id: 13,
+      id: 12,
       title: 'Sobel',
       icon: <MdOutlineFilterBAndW />,
       navigate: '/sobel'
+    },
+    {
+      id: 13,
+      title: 'Equalização',
+      icon: <MdEqualizer />,
+      navigate: '/equalizateimage'
     },
   ]
 
