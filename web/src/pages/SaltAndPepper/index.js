@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Canvas from '../../components/Canvas'
 import * as S from './styles'
 import { CANVAS_ID } from '../../config/constants';
@@ -6,7 +6,9 @@ import { getImageDataFromImage } from '../../utils/getImageDataFromImage';
 import { reRenderImage } from '../../utils/reRenderImage';
 
 const SaltAndPepper = () => {
-  const [ rate, setRate ] = useState(10)
+  const CANVAS_ID_SALTANDPEPPER = 'photo-preview-saltandpepper'
+
+  const rate = 10
 
   const applySaltAndPepper = () => {
     const imageData = getImageDataFromImage(CANVAS_ID)
@@ -27,12 +29,13 @@ const SaltAndPepper = () => {
         data[i+1] = noise
         data[i+2] = noise
     }
-    reRenderImage(imageData, CANVAS_ID)
+    reRenderImage(imageData, CANVAS_ID_SALTANDPEPPER)
   }
   
   return (
     <S.Container>
       <Canvas id={CANVAS_ID} applyOperation={applySaltAndPepper}/>
+      <Canvas id={CANVAS_ID_SALTANDPEPPER} title="Sal e pimenta"/>
     </S.Container>
   )
 }

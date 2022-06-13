@@ -16,10 +16,11 @@ export const Menu = styled.nav`
 
 export const Item = styled.li`
   display: flex;
+  cursor: pointer;
 
   > p {
     font-size: 16px;
-    margin: 18px auto;
+    margin: 12px auto;
     max-width: 300px;
     color: ${props => props.theme.white};
   }

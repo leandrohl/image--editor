@@ -6,6 +6,8 @@ import { reRenderImage } from '../../utils/reRenderImage';
 import { CANVAS_ID, MAX_COLOR } from '../../config/constants';
 
 const BinarizationImage = () => {
+  const CANVAS_ID_BINARIZATION = 'photo-preview-binarization'
+
   const binarizationImage = () => {
     const imageData = getImageDataFromImage(CANVAS_ID)
 
@@ -24,12 +26,13 @@ const BinarizationImage = () => {
       }
     }
     
-    reRenderImage(imageData, CANVAS_ID)
+    reRenderImage(imageData, CANVAS_ID_BINARIZATION)
   }
   
   return (
     <S.Container>
       <Canvas id={CANVAS_ID} applyOperation={binarizationImage}/>
+      <Canvas id={CANVAS_ID_BINARIZATION} title="Resultado da binarização" />
     </S.Container>
   )
 }

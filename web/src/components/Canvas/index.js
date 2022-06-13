@@ -1,16 +1,21 @@
 import React from 'react';
 import Button from '../Button';
 
-import { Container } from './styles';
+import * as S from './styles';
 
 const Canvas = (props) => {
-  const { id, applyOperation, onMouseMove } = props
+  const { id, applyOperation, onMouseMove, title } = props
 
-  return (
-    <Container>
-      <canvas id={id} onMouseMove={(event) => onMouseMove && onMouseMove(event)}></canvas>
+  return  (
+    <S.Container>
+      {title && <S.Title> {title} </S.Title>}
+      <canvas 
+      id={id} 
+      onMouseMove={(event) => onMouseMove && onMouseMove(event)}
+      >
+      </canvas>
       {applyOperation && <Button action={applyOperation}>Aplicar Operação</Button>}
-    </Container>
+    </S.Container>
   );
 }
 

@@ -6,7 +6,7 @@ export const Card = styled.div(({ theme }) => `
   box-shadow: ${theme.shadow};
   padding: 20px 10px;
   border-radius: 4px;
-  width: 400px;
+  width: 360px;
   color: ${theme.black};
   cursor: pointer;
   transition: all 0.2s;

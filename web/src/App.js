@@ -5,16 +5,19 @@ import ThemeMain from './theme/themeMain';
 import { BrowserRouter } from 'react-router-dom'
 import RoutesDom from './routes'
 import ContainerApp from './components/ContainerApp';
+import { AppProvider } from './context/AppContext';
 
 function App() {
 
   return (
     <ThemeMain>
-      <BrowserRouter>
-        <ContainerApp>
-          <RoutesDom />
-        </ContainerApp>
-      </BrowserRouter>
+      <AppProvider>
+        <BrowserRouter>
+          <ContainerApp>
+            <RoutesDom />
+          </ContainerApp>
+        </BrowserRouter>
+      </AppProvider>
       <GlobalStyle />
     </ThemeMain>
   );

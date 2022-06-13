@@ -3,16 +3,19 @@ import React, { useState } from 'react';
 import * as S from './styles';
 import Card from '../../components/Card';
 import { useNavigate } from 'react-router-dom';
-import ModalRGBHSL from './ModalRGBHSL';
-import { getMenu } from '../../services/menu';
-
-// IoIosColorPalette, IoIosColorPalette
+import { useApp } from '../../context/AppContext';
 
 function Home() {
   const navigate = useNavigate()
-  const [openModalHSLRGB, setOpenModalHSLRGB] = useState(false)
+  const { getMenu } = useApp()
 
   const itemsMenu = getMenu()
+
+  const toNavigate = (to) => {
+    if (typeof to === 'string') {
+      navigate(to)
+    } else to()
+  }
 
   return (
     <S.Container>
@@ -23,12 +26,11 @@ function Home() {
               key={item.id}
               title={item.title}
               icon={item.icon}
-              action={() => navigate(item.navigate)}
+              action={() => toNavigate(item.navigate)}
             />
           )
         })
       }
-      { openModalHSLRGB && <ModalRGBHSL open={openModalHSLRGB} onClose={() => setOpenModalHSLRGB(false)}  /> }
     </S.Container>
   );
 }

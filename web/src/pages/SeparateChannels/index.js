@@ -60,7 +60,7 @@ function SeparateChannels() {
     <S.Container>
       <Canvas id={CANVAS_ID} applyOperation={separateChannelsOperation}/>
       <S.Channels>
-        <Canvas id={CANVAS_ID_RED} />
+        <Canvas id={CANVAS_ID_RED}/>
         <Canvas id={CANVAS_ID_GREEN} />
         <Canvas id={CANVAS_ID_BLUE} />
       </S.Channels>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Input from '../../../components/Input'
-import Modal from '../../../components/Modal'
+import Input from '../Input'
+import Modal from '../Modal'
+import { useApp } from '../../context/AppContext';
 import * as S from './styles';
 
-function ModalRGBHSL(props) {
-  const {open, onClose} = props
+function ModalRGBHSL() {
+  const { closeModalHSLRGB } = useApp()
+
   const [RGBValues, setRGBValue] = useState({
     red: 0,
     green: 0,
@@ -106,7 +108,7 @@ function ModalRGBHSL(props) {
   }
 
   return (
-    <Modal title={"Conversão de RGB para HSL"} closeModal={onClose}>
+    <Modal title={"Conversão de RGB para HSL"} closeModal={closeModalHSLRGB}>
       <S.ContainerContent>
         <S.ContainerInputs>
           <Input 

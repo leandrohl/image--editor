@@ -7,7 +7,9 @@ import { getImageDataFromImage } from '../../utils/getImageDataFromImage';
 import { reRenderImage } from '../../utils/reRenderImage';
 
 const DynamicScaleCompression = () => {
-  const [gamma, setGamma] = useState()
+  const CANVAS_ID_DYNAMICSCALE = 'photo-preview-dynamicscale'
+
+  const [gamma, setGamma] = useState(0.1)
 
   const dynamicScaleCompression = () => {
     const imageData = getImageDataFromImage(CANVAS_ID)
@@ -20,14 +22,17 @@ const DynamicScaleCompression = () => {
         data[i+2] = Math.round(255*((data[i+2]/255)**gamma))
     }
 
-    reRenderImage(imageData, CANVAS_ID)
+    reRenderImage(imageData, CANVAS_ID_DYNAMICSCALE)
 
   }
   
   return (
     <S.Container>
-      <Canvas id={CANVAS_ID} applyOperation={dynamicScaleCompression}/>
-      <Input label="γ" value={gamma} onChange={(event) => setGamma(event.target.value)} />
+      <S.ContainerForm>
+        <Canvas id={CANVAS_ID} applyOperation={dynamicScaleCompression}/>
+        <Input label="γ" value={gamma} onChange={(event) => setGamma(event.target.value)} />
+      </S.ContainerForm>
+      <Canvas id={CANVAS_ID_DYNAMICSCALE} title="S = c*r^y"/>
     </S.Container>
   )
 }

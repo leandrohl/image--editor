@@ -1,10 +1,11 @@
 import React from 'react';
-import { getMenu } from '../../services/menu';
 
 import * as S from './styles';
 import { useNavigate } from 'react-router-dom';
+import { useApp } from '../../context/AppContext';
 
 function MenuLateral() {
+  const { getMenu } = useApp()
   const navigate = useNavigate()
 
   const itemsMenu = getMenu()
@@ -42,6 +43,12 @@ function MenuLateral() {
 
   }
 
+  const toNavigate = (to) => {
+    if (typeof to === 'string') {
+      navigate(to)
+    } else to()
+  }
+
   return (
     <S.Menu>
       <ul>
@@ -60,12 +67,12 @@ function MenuLateral() {
           </label>
         </S.Item>
         <S.Item onClick={() => navigate('/')}>
-          <p>Menu</p>
+          <p>Home</p>
         </S.Item>
         {
           itemsMenu.map(item => {
             return (
-              <S.Item onClick={() => navigate(item.navigate)}>
+              <S.Item key={item.id} onClick={() => toNavigate(item.navigate)}>
                 <p>{item.title}</p>
               </S.Item>
             )
